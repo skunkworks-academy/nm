@@ -1,0 +1,55 @@
+name: Deploy Nkateko IDR to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - uses: actions/configure-pages@v5
+      - run: npm install --no-audit --no-fund
+      - run: npm run validate
+      - run: npm run build
+      - name: Verify deployable output
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s build/index.html
+          test -s build/CNAME
+          grep -Fxq 'nm.skunkworksacademy.com' build/CNAME
+          test -s build/route-recovery.js
+          test -s build/downloads/Nkateko_Mtembi_Individual_Development_Roadmap.pdf
+          test -s build/downloads/nkateko-idr-12-week-calendar.ics
+          routes=(overview profile pathway roadmap 12-week-sprint credentials curriculum labs assignments projects calendar kpis mentor governance resources references download-and-review)
+          for route in "${routes[@]}"; do test -s "build/idr/${route}/index.html"; done
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: build
+          include-hidden-files: true
+
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
