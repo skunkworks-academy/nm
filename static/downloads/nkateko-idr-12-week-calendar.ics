@@ -1,0 +1,47 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Skunkworks Academy//Nkateko IDR//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Nkateko IDR — 12 Week Sprint
+BEGIN:VEVENT
+UID:nkateko-idr-theory@skunkworksacademy.com
+DTSTART:20260831T183000
+DTEND:20260831T193000
+RRULE:FREQ=WEEKLY;COUNT=12;BYDAY=MO
+SUMMARY:Nkateko IDR — Theory and documentation
+DESCRIPTION:Primary documentation, theory and weekly question.
+END:VEVENT
+BEGIN:VEVENT
+UID:nkateko-idr-lab@skunkworksacademy.com
+DTSTART:20260902T183000
+DTEND:20260902T200000
+RRULE:FREQ=WEEKLY;COUNT=12;BYDAY=WE
+SUMMARY:Nkateko IDR — SOC lab and investigation
+DESCRIPTION:Hands-on Wazuh, Windows, networking, detection or incident-response work.
+END:VEVENT
+BEGIN:VEVENT
+UID:nkateko-idr-docs@skunkworksacademy.com
+DTSTART:20260903T183000
+DTEND:20260903T193000
+RRULE:FREQ=WEEKLY;COUNT=12;BYDAY=TH
+SUMMARY:Nkateko IDR — Documentation and GitHub
+DESCRIPTION:Turn lab work into a README, timeline, rule note or portfolio evidence.
+END:VEVENT
+BEGIN:VEVENT
+UID:nkateko-idr-deepwork@skunkworksacademy.com
+DTSTART:20260905T090000
+DTEND:20260905T110000
+RRULE:FREQ=WEEKLY;COUNT=12;BYDAY=SA
+SUMMARY:Nkateko IDR — Deep work and portfolio
+DESCRIPTION:Complete the weekly artefact and self-review.
+END:VEVENT
+BEGIN:VEVENT
+UID:nkateko-idr-mentor@skunkworksacademy.com
+DTSTART:20260902T200000
+DTEND:20260902T203000
+RRULE:FREQ=WEEKLY;INTERVAL=2;COUNT=6;BYDAY=WE
+SUMMARY:Nkateko IDR — Mentor / one-on-one review
+DESCRIPTION:Review evidence, communication, blockers and next actions.
+END:VEVENT
+END:VCALENDAR
