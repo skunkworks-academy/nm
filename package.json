@@ -1,0 +1,27 @@
+{
+  "name": "nkateko-mtembi-idr",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Interactive Individual Development Roadmap for Nkateko Mtembi.",
+  "scripts": {
+    "start": "npm run generate:pdf && docusaurus start",
+    "build": "npm run generate:pdf && docusaurus build",
+    "serve": "docusaurus serve",
+    "clear": "docusaurus clear",
+    "generate:pdf": "node scripts/generate-idr-pdf.mjs",
+    "validate": "node scripts/validate-site.mjs",
+    "check": "npm run validate && npm run build"
+  },
+  "dependencies": {
+    "@docusaurus/core": "3.10.2",
+    "@docusaurus/preset-classic": "3.10.2",
+    "@docusaurus/theme-mermaid": "3.10.2",
+    "@mdx-js/react": "^3.1.0",
+    "clsx": "^2.1.1",
+    "pdfkit": "^0.17.2",
+    "prism-react-renderer": "^2.4.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "engines": {"node": ">=24.0"}
+}
