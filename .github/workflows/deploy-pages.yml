@@ -38,6 +38,10 @@ jobs:
           test -s build/downloads/nkateko-idr-12-week-calendar.ics
           routes=(overview profile pathway roadmap 12-week-sprint credentials curriculum labs assignments projects calendar kpis mentor governance resources references download-and-review)
           for route in "${routes[@]}"; do test -s "build/idr/${route}/index.html"; done
+      - name: Install and verify Academy search favicons
+        uses: skunkworks-academy/www/.github/actions/search-favicons@070f621875577a66ae43cdffa7e9d20c65efdc71
+        with:
+          artifact-path: "build"
       - uses: actions/upload-pages-artifact@v4
         with:
           path: build
